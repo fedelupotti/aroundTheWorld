@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var homeViewModel = HomeViewModel(apiService: APIService())
     var body: some View {
-        VStack {
-            Image(systemName: "Testing repository")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        List {
+            ForEach(homeViewModel.cities) { city in
+                Text(city.name ?? "")
+            }
         }
-        .padding()
     }
 }
 
