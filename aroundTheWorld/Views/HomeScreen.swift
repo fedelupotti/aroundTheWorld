@@ -12,7 +12,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(homeViewModel.cities) { city in
+                ForEach(homeViewModel.serachableCities) { city in
                     VStack(alignment: .leading) {
                         
                         HStack(alignment: .center) {
@@ -32,6 +32,7 @@ struct ContentView: View {
             }
             .navigationTitle("Arround the Word!")
             .navigationBarTitleDisplayMode(.large)
+            .searchable(text: $homeViewModel.searchableText)
         }
         
     }

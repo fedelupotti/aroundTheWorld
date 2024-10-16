@@ -9,10 +9,16 @@ import Foundation
 
 final class HomeViewModel: ObservableObject {
     @Published private(set) var cities: [City] = []
+    @Published var searchableText = ""
 
     private let apiService: APIService
     
     private var cancellables = Set<AnyCancellable>()
+    
+    var serachableCities: [City] {
+        if searchableText.isEmpty { return cities }
+        return cities.filter { $0.name?.lowercased().contains(searchableText.lowercased()) ?? false }
+    }
     
     init(apiService: APIService) {
         self.apiService = apiService
