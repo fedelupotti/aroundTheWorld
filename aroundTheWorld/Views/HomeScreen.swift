@@ -13,20 +13,26 @@ struct ContentView: View {
         NavigationStack {
             List {
                 ForEach(homeViewModel.serachableCities) { city in
-                    VStack(alignment: .leading) {
+                    
+                    NavigationLink {
+                        MapScreen(city: city)
+                    } label: {
                         
-                        HStack(alignment: .center) {
-                            Text(city.name ?? "")
-                            Text(city.country ?? "")
+                        VStack(alignment: .leading) {
+                            
+                            HStack(alignment: .center) {
+                                Text(city.name ?? "")
+                                Text(city.country ?? "")
+                            }
+                            .font(.title2.bold())
+                            
+                            HStack(alignment: .center) {
+                                Text("Lat: \(city.coordinate?.lat ?? Double())")
+                                Text("Lon: \(city.coordinate?.lon ?? Double())")
+                            }
+                            .font(.callout)
+                            .padding(.top, 2)
                         }
-                        .font(.title2.bold())
-                        
-                        HStack(alignment: .center) {
-                            Text("Lat: \(city.coordinate?.lat ?? Float())")
-                            Text("Lon: \(city.coordinate?.lon ?? Float())")
-                        }
-                        .font(.callout)
-                        .padding(.top, 2)
                     }
                 }
             }

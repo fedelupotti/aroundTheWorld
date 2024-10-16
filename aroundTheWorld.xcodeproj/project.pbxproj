@@ -14,6 +14,7 @@
 		DD11AFA42CC0014D00D115FF /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AFA32CC0014D00D115FF /* City.swift */; };
 		DD11AFA72CC0080500D115FF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AFA62CC0080500D115FF /* HomeViewModel.swift */; };
 		DD11AFAA2CC00FDB00D115FF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AFA92CC00FDB00D115FF /* APIService.swift */; };
+		DD11AFAD2CC0480000D115FF /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AFAC2CC0480000D115FF /* MapScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		DD11AFA32CC0014D00D115FF /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		DD11AFA62CC0080500D115FF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DD11AFA92CC00FDB00D115FF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		DD11AFAC2CC0480000D115FF /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				DD11AF962CBFFEDC00D115FF /* HomeScreen.swift */,
+				DD11AFAC2CC0480000D115FF /* MapScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD11AFAD2CC0480000D115FF /* MapScreen.swift in Sources */,
 				DD11AF972CBFFEDC00D115FF /* HomeScreen.swift in Sources */,
 				DD11AFAA2CC00FDB00D115FF /* APIService.swift in Sources */,
 				DD11AF952CBFFEDC00D115FF /* aroundTheWorldApp.swift in Sources */,
