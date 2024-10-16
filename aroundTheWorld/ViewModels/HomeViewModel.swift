@@ -34,8 +34,13 @@ final class HomeViewModel: ObservableObject {
                     print(error)
                 }
             }, receiveValue: { [weak self] cities in
-                self?.cities = cities
+                let sortedCities = self?.sortByName(for: cities) ?? []
+                self?.cities = sortedCities
             })
             .store(in: &cancellables)
+    }
+    
+    private func sortByName(for cities: [City]) -> [City] {
+        return cities.sorted(by: { $0.name ?? "" < $1.name ?? "" })
     }
 }
