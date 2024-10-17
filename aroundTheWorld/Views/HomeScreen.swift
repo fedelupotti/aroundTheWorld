@@ -17,37 +17,6 @@ struct ContentView: View {
             .background(Color.white.opacity(0))
     }
     
-    @ViewBuilder
-    func toggleView(for city: City) -> some View {
-        Toggle("", isOn: Binding(
-            get: { city.isFavorite ?? false },
-            set: { newValue in
-                homeViewModel.updateCity(city, isFavorite: newValue)
-            })
-        )
-        .toggleStyle(.city)
-        .padding([.leading, .trailing], 10)
-    }
-    
-    @ViewBuilder
-    func titlesView(for city: City) -> some View {
-        HStack(alignment: .center) {
-            Text(city.name ?? "")
-            Text(city.country ?? "")
-        }
-        .font(.title2.bold())
-    }
-    
-    @ViewBuilder
-    func coordinatesView(for city: City) -> some View {
-        HStack(alignment: .center) {
-            Text("Lat: \(city.coordinate?.lat ?? Double())")
-            Text("Lon: \(city.coordinate?.lon ?? Double())")
-        }
-        .font(.callout)
-        .padding(.top, 2)
-    }
-    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -56,15 +25,7 @@ struct ContentView: View {
                         NavigationLink {
                             MapScreen(city: city)
                         } label: {
-                            HStack(alignment: .center) {
-                                toggleView(for: city)
-                                
-                                VStack(alignment: .leading) {
-                                    titlesView(for: city)
-                                    coordinatesView(for: city)
-                                }
-                                .foregroundStyle(Color.primary)
-                            }
+                            CityCellView(city: city)
                         }
                     }
                 }
@@ -78,7 +39,7 @@ struct ContentView: View {
             .navigationBarTitleDisplayMode(.large)
             .searchable(text: $homeViewModel.searchableText)
         }
-        
+        .environmentObject(homeViewModel)
     }
 }
 
