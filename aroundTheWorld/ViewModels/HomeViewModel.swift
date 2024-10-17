@@ -11,6 +11,7 @@ final class HomeViewModel: ObservableObject {
     @Published private var cities: [City] = []
     @Published var searchableText = ""
     @Published private(set) var citiesSearched: [City] = []
+    @Published private(set) var isLoading = false
 
     private let apiService: APIService
     
@@ -34,9 +35,13 @@ final class HomeViewModel: ObservableObject {
     }
     
     private func onFetchSubscribe() {
+        isLoading = true
+        
         apiService.fetchCities()
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion in
+            .sink(receiveCompletion: { [weak self] completion in
+                defer { self?.isLoading = false }
+                
                 if case .failure(let error) = completion {
                     print(error)
                 }

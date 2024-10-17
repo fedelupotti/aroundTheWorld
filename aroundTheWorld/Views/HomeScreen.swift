@@ -9,6 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var homeViewModel = HomeViewModel(apiService: APIService())
+    
+    var loadingOverlay: some View {
+        ProgressView()
+            .progressViewStyle(CircularProgressViewStyle())
+            .padding()
+            .background(Color.white.opacity(0))
+    }
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -52,6 +60,11 @@ struct ContentView: View {
                             
                         }
                     }
+                }
+            }
+            .overlay(alignment: .center) {
+                if homeViewModel.isLoading {
+                   loadingOverlay
                 }
             }
             .navigationTitle("Arround the Word!")
