@@ -24,11 +24,11 @@ final class HomeViewModel: ObservableObject {
     }
     
     private func onSearchableSubscribe() {
-        $cities
-            .map { [weak self] in
-                guard let self else { return [] }
-                if self.searchableText.isEmpty == true { return $0 }
-                return self.cities.filter { $0.name?.lowercased().contains(self.searchableText.lowercased()) ?? false }
+        $searchableText
+            .combineLatest($cities)
+            .map { (text, cities) -> [City] in
+                if text.isEmpty { return cities }
+                return cities.filter { $0.name?.lowercased().contains(text.lowercased()) ?? false }
             }
             .assign(to: &$citiesSearched)
     }

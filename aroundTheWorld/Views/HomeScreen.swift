@@ -11,41 +11,46 @@ struct ContentView: View {
     @StateObject var homeViewModel = HomeViewModel(apiService: APIService())
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(homeViewModel.citiesSearched) { city in
-                    
-                    NavigationLink {
-                        MapScreen(city: city)
-                    } label: {
+            ScrollView {
+                LazyVStack(alignment: .leading, spacing: 10) {
+                    ForEach(homeViewModel.citiesSearched) { city in
                         
-                        HStack(alignment: .center) {
+                        NavigationLink {
+                            MapScreen(city: city)
+                        } label: {
                             
-                            Toggle("", isOn: Binding(
-                                get: { city.isFavorite ?? false },
-                                set: { newValue in
-                                    homeViewModel.updateCity(city, isFavorite: newValue)
-                                })
-                            )
-                            .toggleStyle(.city)
-                            
-                            VStack(alignment: .leading) {
+                            HStack(alignment: .center) {
                                 
-                                HStack(alignment: .center) {
-                                    Text(city.name ?? "")
-                                    Text(city.country ?? "")
-                                }
-                                .font(.title2.bold())
+                                Toggle("", isOn: Binding(
+                                    get: { city.isFavorite ?? false },
+                                    set: { newValue in
+                                        homeViewModel.updateCity(city, isFavorite: newValue)
+                                    })
+                                )
+                                .toggleStyle(.city)
+                                .padding([.leading, .trailing], 10)
                                 
-                                HStack(alignment: .center) {
-                                    Text("Lat: \(city.coordinate?.lat ?? Double())")
-                                    Text("Lon: \(city.coordinate?.lon ?? Double())")
+                                VStack(alignment: .leading) {
+                                    
+                                    HStack(alignment: .center) {
+                                        Text(city.name ?? "")
+                                        Text(city.country ?? "")
+                                    }
+                                    .font(.title2.bold())
+                                    .foregroundStyle(Color.primary)
+                                    
+                                    HStack(alignment: .center) {
+                                        Text("Lat: \(city.coordinate?.lat ?? Double())")
+                                        Text("Lon: \(city.coordinate?.lon ?? Double())")
+                                    }
+                                    .font(.callout)
+                                    .foregroundStyle(Color.primary)
+                                    .padding(.top, 2)
                                 }
-                                .font(.callout)
-                                .padding(.top, 2)
                             }
+                            
+                            
                         }
-                        
-
                     }
                 }
             }
