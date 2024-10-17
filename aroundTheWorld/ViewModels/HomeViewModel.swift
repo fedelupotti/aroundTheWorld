@@ -9,8 +9,12 @@ import Foundation
 
 final class HomeViewModel: ObservableObject {
     @Published private var cities: [City] = []
+    
     @Published var searchableText = ""
+    
     @Published private(set) var citiesSearched: [City] = []
+    @Published private(set) var citiesFavoritesSearched: [City] = []
+    
     @Published private(set) var isLoading = false
 
     private let apiService: APIService
@@ -32,6 +36,14 @@ final class HomeViewModel: ObservableObject {
                 return cities.filter { $0.name?.lowercased().contains(text.lowercased()) ?? false }
             }
             .assign(to: &$citiesSearched)
+        
+        $searchableText
+            .combineLatest($cities)
+            .map { (text, cities) -> [City] in
+                if text.isEmpty { return cities.filter({ $0.isFavorite == true }) }
+                return cities.filter { $0.name?.lowercased().contains(text.lowercased()) ?? false && $0.isFavorite == true }
+            }
+            .assign(to: &$citiesFavoritesSearched)
     }
     
     private func onFetchSubscribe() {
