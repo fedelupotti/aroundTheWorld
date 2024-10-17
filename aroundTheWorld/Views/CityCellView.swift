@@ -50,7 +50,10 @@ struct CityCellView: View {
                 coordinatesView(for: city)
             }
             .foregroundStyle(Color.primary)
+            
+            Spacer()
         }
+        .contentShape(Rectangle())
     }
 }
 
