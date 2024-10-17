@@ -12,11 +12,13 @@ struct City: Decodable, Identifiable {
     let name: String?
     let id: Int?
     let coordinate: Coordinate?
-    
+    var isFavorite: Bool?
+
     enum CodingKeys: String, CodingKey {
         case country, name
         case id = "_id"
         case coordinate = "coord"
+        case isFavorite
     }
 }
 

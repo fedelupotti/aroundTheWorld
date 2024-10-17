@@ -8,22 +8,29 @@ import Combine
 import Foundation
 
 final class HomeViewModel: ObservableObject {
-    @Published private(set) var cities: [City] = []
+    @Published private var cities: [City] = []
     @Published var searchableText = ""
+    @Published private(set) var citiesSearched: [City] = []
 
     private let apiService: APIService
     
     private var cancellables = Set<AnyCancellable>()
     
-    var serachableCities: [City] {
-        if searchableText.isEmpty { return cities }
-        return cities.filter { $0.name?.lowercased().contains(searchableText.lowercased()) ?? false }
-    }
-    
     init(apiService: APIService) {
         self.apiService = apiService
         
         onFetchSubscribe()
+        onSearchableSubscribe()
+    }
+    
+    private func onSearchableSubscribe() {
+        $cities
+            .map { [weak self] in
+                guard let self else { return [] }
+                if self.searchableText.isEmpty == true { return $0 }
+                return self.cities.filter { $0.name?.lowercased().contains(self.searchableText.lowercased()) ?? false }
+            }
+            .assign(to: &$citiesSearched)
     }
     
     private func onFetchSubscribe() {
@@ -42,5 +49,10 @@ final class HomeViewModel: ObservableObject {
     
     private func sortByName(for cities: [City]) -> [City] {
         return cities.sorted(by: { $0.name ?? "" < $1.name ?? "" })
+    }
+    
+    func updateCity(_ city: City, isFavorite: Bool) {
+        guard let index = cities.firstIndex(where: { $0.id == city.id }) else { return }
+        cities[index].isFavorite = isFavorite
     }
 }

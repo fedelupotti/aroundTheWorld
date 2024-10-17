@@ -15,6 +15,7 @@
 		DD11AFA72CC0080500D115FF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AFA62CC0080500D115FF /* HomeViewModel.swift */; };
 		DD11AFAA2CC00FDB00D115FF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AFA92CC00FDB00D115FF /* APIService.swift */; };
 		DD11AFAD2CC0480000D115FF /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AFAC2CC0480000D115FF /* MapScreen.swift */; };
+		DD11AFB52CC15C4300D115FF /* CityToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AFB42CC15C4300D115FF /* CityToggleStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		DD11AFA62CC0080500D115FF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DD11AFA92CC00FDB00D115FF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		DD11AFAC2CC0480000D115FF /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
+		DD11AFB42CC15C4300D115FF /* CityToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityToggleStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				DD11AFA52CC007EB00D115FF /* ViewModels */,
 				DD11AFA82CC00FC400D115FF /* Helpers */,
 				DD11AFA22CC0010A00D115FF /* Models */,
+				DD11AFB32CC15C1900D115FF /* Utils */,
 				DD11AF982CBFFEDD00D115FF /* Assets.xcassets */,
 				DD11AF9A2CBFFEDD00D115FF /* Preview Content */,
 			);
@@ -109,6 +112,14 @@
 				DD11AFAC2CC0480000D115FF /* MapScreen.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DD11AFB32CC15C1900D115FF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DD11AFB42CC15C4300D115FF /* CityToggleStyle.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD11AFAD2CC0480000D115FF /* MapScreen.swift in Sources */,
+				DD11AFB52CC15C4300D115FF /* CityToggleStyle.swift in Sources */,
 				DD11AF972CBFFEDC00D115FF /* HomeScreen.swift in Sources */,
 				DD11AFAA2CC00FDB00D115FF /* APIService.swift in Sources */,
 				DD11AF952CBFFEDC00D115FF /* aroundTheWorldApp.swift in Sources */,

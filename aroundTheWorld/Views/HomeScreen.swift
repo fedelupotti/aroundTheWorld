@@ -12,27 +12,40 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(homeViewModel.serachableCities) { city in
+                ForEach(homeViewModel.citiesSearched) { city in
                     
                     NavigationLink {
                         MapScreen(city: city)
                     } label: {
                         
-                        VStack(alignment: .leading) {
+                        HStack(alignment: .center) {
                             
-                            HStack(alignment: .center) {
-                                Text(city.name ?? "")
-                                Text(city.country ?? "")
-                            }
-                            .font(.title2.bold())
+                            Toggle("", isOn: Binding(
+                                get: { city.isFavorite ?? false },
+                                set: { newValue in
+                                    homeViewModel.updateCity(city, isFavorite: newValue)
+                                })
+                            )
+                            .toggleStyle(.city)
                             
-                            HStack(alignment: .center) {
-                                Text("Lat: \(city.coordinate?.lat ?? Double())")
-                                Text("Lon: \(city.coordinate?.lon ?? Double())")
+                            VStack(alignment: .leading) {
+                                
+                                HStack(alignment: .center) {
+                                    Text(city.name ?? "")
+                                    Text(city.country ?? "")
+                                }
+                                .font(.title2.bold())
+                                
+                                HStack(alignment: .center) {
+                                    Text("Lat: \(city.coordinate?.lat ?? Double())")
+                                    Text("Lon: \(city.coordinate?.lon ?? Double())")
+                                }
+                                .font(.callout)
+                                .padding(.top, 2)
                             }
-                            .font(.callout)
-                            .padding(.top, 2)
                         }
+                        
+
                     }
                 }
             }
