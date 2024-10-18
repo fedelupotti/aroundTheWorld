@@ -6,10 +6,17 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ContentView: View {
+    @Orientation var orientationDevice
+    
     @StateObject var homeViewModel = HomeViewModel(apiService: APIService())
+    
+    @State private var citySelected: City?
     @State private var selectedSegment = 0
+        
+    private let navitationTitle = "Around the World!"
     
     var loadingOverlay: some View {
         ProgressView()
@@ -33,6 +40,18 @@ struct ContentView: View {
     }
     
     var body: some View {
+        Group {
+            if orientationDevice.isPortrait {
+                verticalView
+            } else {
+                horizontalView
+            }
+        }
+        .environmentObject(homeViewModel)
+        
+    }
+    
+    private var verticalView: some View {
         NavigationStack {
             ScrollView {
                 segmentedControl
@@ -41,23 +60,52 @@ struct ContentView: View {
                     ForEach(dataSourceSelected) { city in
                         NavigationLink {
                             MapScreen(city: city)
-                            } label: {
-                                CityCellView(city: city)
-                            }
+                        } label: {
+                            CityCellView(city: city)
                         }
+                    }
                 }
             }
             .overlay(alignment: .center) {
                 if homeViewModel.isLoading {
-                   loadingOverlay
+                    loadingOverlay
                 }
             }
-            .navigationTitle("Arround the Word!")
+            .navigationTitle(navitationTitle)
             .navigationBarTitleDisplayMode(.large)
             .searchable(text: $homeViewModel.searchableText, placement: .navigationBarDrawer(displayMode: .always))
         }
-        .environmentObject(homeViewModel)
     }
+    
+    private var horizontalView: some View {
+        HStack(spacing: 0) {
+            NavigationStack {
+                ScrollView {
+                    LazyVStack(alignment: .leading, spacing: 10) {
+                        ForEach(dataSourceSelected) { city in
+                            CityCellView(city: city)
+                                .onTapGesture {
+                                    print("City Changed")
+                                    citySelected = city
+                                }
+                        }
+                    }
+                }
+                .navigationTitle(navitationTitle)
+                .searchable(text: $homeViewModel.searchableText, placement: .navigationBarDrawer(displayMode: .always))
+            }
+            .frame(maxWidth: UIScreen.main.bounds.width * 0.4)
+            
+            MapScreen(city: citySelected)
+                .frame(maxWidth: .infinity)
+        }
+        .overlay(alignment: .center) {
+            if homeViewModel.isLoading {
+                loadingOverlay
+            }
+        }
+    }
+    
 }
 
 #Preview {
