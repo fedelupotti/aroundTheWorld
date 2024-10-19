@@ -7,8 +7,16 @@
 import Combine
 import Foundation
 
-final class APIService: ObservableObject {
-    @Published private(set) var cities: [City] = []
+protocol NetworkService {
+    func fetchData(from url: URL) -> AnyPublisher<Data, URLError>
+}
+
+final class APIService: ObservableObject {    
+    private let networkService: NetworkService
+    
+    init(networkService: NetworkService = URLSession.shared) {
+        self.networkService = networkService
+    }
     
     func fetchCities() -> AnyPublisher<[City], Error> {
         let citiesUrlString = "https://gist.githubusercontent.com/hernan-uala/dce8843a8edbe0b0018b32e137bc2b3a/raw/0996accf70cb0ca0e16f9a99e0ee185fafca7af1/cities.json"
@@ -18,9 +26,16 @@ final class APIService: ObservableObject {
                 .eraseToAnyPublisher()
         }
         let decoder = JSONDecoder()
-        return URLSession.shared.dataTaskPublisher(for: citiesURL)
-            .map { $0.data }
+        return networkService.fetchData(from: citiesURL)
             .decode(type: [City].self, decoder: decoder)
+            .eraseToAnyPublisher()
+    }
+}
+
+extension URLSession: NetworkService {
+    func fetchData(from url: URL) -> AnyPublisher<Data, URLError> {
+        return dataTaskPublisher(for: url)
+            .map { $0.data }
             .eraseToAnyPublisher()
     }
 }

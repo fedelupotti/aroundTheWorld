@@ -17,8 +17,20 @@
 		DD11AFAD2CC0480000D115FF /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AFAC2CC0480000D115FF /* MapScreen.swift */; };
 		DD11AFB52CC15C4300D115FF /* CityToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AFB42CC15C4300D115FF /* CityToggleStyle.swift */; };
 		DD11AFBB2CC17AB300D115FF /* CityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AFBA2CC17AB300D115FF /* CityCellView.swift */; };
+		DD3099382CC40007004F7E94 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3099372CC40007004F7E94 /* MockNetworkService.swift */; };
+		DD33DF322CC3ABC900011E44 /* aroundTheWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD33DF312CC3ABC900011E44 /* aroundTheWorldTests.swift */; };
 		DD3A02972CC23C9F00A66B10 /* OrientationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A02962CC23C9F00A66B10 /* OrientationManager.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD33DF332CC3ABC900011E44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD11AF892CBFFEDC00D115FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD11AF902CBFFEDC00D115FF;
+			remoteInfo = aroundTheWorld;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DD11AF912CBFFEDC00D115FF /* aroundTheWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aroundTheWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,11 +44,21 @@
 		DD11AFAC2CC0480000D115FF /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		DD11AFB42CC15C4300D115FF /* CityToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityToggleStyle.swift; sourceTree = "<group>"; };
 		DD11AFBA2CC17AB300D115FF /* CityCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCellView.swift; sourceTree = "<group>"; };
+		DD3099372CC40007004F7E94 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		DD33DF2F2CC3ABC900011E44 /* aroundTheWorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = aroundTheWorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD33DF312CC3ABC900011E44 /* aroundTheWorldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aroundTheWorldTests.swift; sourceTree = "<group>"; };
 		DD3A02962CC23C9F00A66B10 /* OrientationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DD11AF8E2CBFFEDC00D115FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD33DF2C2CC3ABC900011E44 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -50,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				DD11AF932CBFFEDC00D115FF /* aroundTheWorld */,
+				DD33DF302CC3ABC900011E44 /* aroundTheWorldTests */,
 				DD11AF922CBFFEDC00D115FF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				DD11AF912CBFFEDC00D115FF /* aroundTheWorld.app */,
+				DD33DF2F2CC3ABC900011E44 /* aroundTheWorldTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				DD11AFA92CC00FDB00D115FF /* APIService.swift */,
+				DD3099372CC40007004F7E94 /* MockNetworkService.swift */,
 				DD3A02962CC23C9F00A66B10 /* OrientationManager.swift */,
 			);
 			path = Helpers;
@@ -128,6 +153,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		DD33DF302CC3ABC900011E44 /* aroundTheWorldTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD33DF312CC3ABC900011E44 /* aroundTheWorldTests.swift */,
+			);
+			path = aroundTheWorldTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,6 +181,24 @@
 			productReference = DD11AF912CBFFEDC00D115FF /* aroundTheWorld.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DD33DF2E2CC3ABC900011E44 /* aroundTheWorldTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD33DF372CC3ABC900011E44 /* Build configuration list for PBXNativeTarget "aroundTheWorldTests" */;
+			buildPhases = (
+				DD33DF2B2CC3ABC900011E44 /* Sources */,
+				DD33DF2C2CC3ABC900011E44 /* Frameworks */,
+				DD33DF2D2CC3ABC900011E44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD33DF342CC3ABC900011E44 /* PBXTargetDependency */,
+			);
+			name = aroundTheWorldTests;
+			productName = aroundTheWorldTests;
+			productReference = DD33DF2F2CC3ABC900011E44 /* aroundTheWorldTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -160,6 +211,10 @@
 				TargetAttributes = {
 					DD11AF902CBFFEDC00D115FF = {
 						CreatedOnToolsVersion = 15.0.1;
+					};
+					DD33DF2E2CC3ABC900011E44 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = DD11AF902CBFFEDC00D115FF;
 					};
 				};
 			};
@@ -177,6 +232,7 @@
 			projectRoot = "";
 			targets = (
 				DD11AF902CBFFEDC00D115FF /* aroundTheWorld */,
+				DD33DF2E2CC3ABC900011E44 /* aroundTheWorldTests */,
 			);
 		};
 /* End PBXProject section */
@@ -191,6 +247,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DD33DF2D2CC3ABC900011E44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -200,6 +263,7 @@
 			files = (
 				DD11AFAD2CC0480000D115FF /* MapScreen.swift in Sources */,
 				DD11AFBB2CC17AB300D115FF /* CityCellView.swift in Sources */,
+				DD3099382CC40007004F7E94 /* MockNetworkService.swift in Sources */,
 				DD3A02972CC23C9F00A66B10 /* OrientationManager.swift in Sources */,
 				DD11AFB52CC15C4300D115FF /* CityToggleStyle.swift in Sources */,
 				DD11AF972CBFFEDC00D115FF /* HomeScreen.swift in Sources */,
@@ -210,7 +274,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DD33DF2B2CC3ABC900011E44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD33DF322CC3ABC900011E44 /* aroundTheWorldTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD33DF342CC3ABC900011E44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD11AF902CBFFEDC00D115FF /* aroundTheWorld */;
+			targetProxy = DD33DF332CC3ABC900011E44 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		DD11AF9D2CBFFEDD00D115FF /* Debug */ = {
@@ -390,6 +470,42 @@
 			};
 			name = Release;
 		};
+		DD33DF352CC3ABC900011E44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C4XSSD23UD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.federicoLupotti.aroundTheWorldTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/aroundTheWorld.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/aroundTheWorld";
+			};
+			name = Debug;
+		};
+		DD33DF362CC3ABC900011E44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C4XSSD23UD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.federicoLupotti.aroundTheWorldTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/aroundTheWorld.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/aroundTheWorld";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -407,6 +523,15 @@
 			buildConfigurations = (
 				DD11AFA02CBFFEDD00D115FF /* Debug */,
 				DD11AFA12CBFFEDD00D115FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD33DF372CC3ABC900011E44 /* Build configuration list for PBXNativeTarget "aroundTheWorldTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD33DF352CC3ABC900011E44 /* Debug */,
+				DD33DF362CC3ABC900011E44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
