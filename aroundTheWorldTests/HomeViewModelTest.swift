@@ -64,7 +64,7 @@ final class HomeViewModelTest: XCTestCase {
         apiService = APIService(networkService: mockNetworkService)
         sut = HomeViewModel(apiService: apiService)
         
-        let expectation = XCTestExpectation(description: "Initialization of isLoading is false")
+        //Then
         XCTAssertFalse(sut.isLoading, "El valor inicial de isLoading debería ser true al inicializar el HomeViewModel")
     }
     
@@ -81,9 +81,11 @@ final class HomeViewModelTest: XCTestCase {
         sut = HomeViewModel(apiService: apiService)
         
         let expectation = XCTestExpectation(description: "isLoading true after onFetchSubscription")
+        
         sut.$isLoading
             .dropFirst()
             .sink { isLoading in
+                //Then
                 XCTAssertTrue(isLoading)
                 expectation.fulfill()
             }
@@ -103,10 +105,12 @@ final class HomeViewModelTest: XCTestCase {
         sut = HomeViewModel(apiService: apiService)
         
         let expectation = XCTestExpectation(description: "isLoading true after onFetchSubscription")
+        
         sut.$isLoading
             .dropFirst()
             .delay(for: .seconds(1), scheduler: DispatchQueue.main)
             .sink { isLoading in
+                //Then
                 XCTAssertFalse(isLoading)
                 expectation.fulfill()
             }
@@ -130,6 +134,7 @@ final class HomeViewModelTest: XCTestCase {
         
         let citiesSortedByName = sut.sortByNameTesting(for: mockCity)
         
+        //Then
         XCTAssertTrue(citiesSortedByName[0].id == 3001)
     }
 }
