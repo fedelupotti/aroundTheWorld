@@ -18,7 +18,7 @@
 		DD11AFB52CC15C4300D115FF /* CityToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AFB42CC15C4300D115FF /* CityToggleStyle.swift */; };
 		DD11AFBB2CC17AB300D115FF /* CityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AFBA2CC17AB300D115FF /* CityCellView.swift */; };
 		DD3099382CC40007004F7E94 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3099372CC40007004F7E94 /* MockNetworkService.swift */; };
-		DD33DF322CC3ABC900011E44 /* aroundTheWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD33DF312CC3ABC900011E44 /* aroundTheWorldTests.swift */; };
+		DD33DF322CC3ABC900011E44 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD33DF312CC3ABC900011E44 /* APIServiceTests.swift */; };
 		DD3A02972CC23C9F00A66B10 /* OrientationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A02962CC23C9F00A66B10 /* OrientationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +46,7 @@
 		DD11AFBA2CC17AB300D115FF /* CityCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCellView.swift; sourceTree = "<group>"; };
 		DD3099372CC40007004F7E94 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		DD33DF2F2CC3ABC900011E44 /* aroundTheWorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = aroundTheWorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD33DF312CC3ABC900011E44 /* aroundTheWorldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aroundTheWorldTests.swift; sourceTree = "<group>"; };
+		DD33DF312CC3ABC900011E44 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		DD3A02962CC23C9F00A66B10 /* OrientationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +92,7 @@
 				DD11AF942CBFFEDC00D115FF /* aroundTheWorldApp.swift */,
 				DD11AFAB2CC020DC00D115FF /* Views */,
 				DD11AFA52CC007EB00D115FF /* ViewModels */,
-				DD11AFA82CC00FC400D115FF /* Helpers */,
+				DD11AFA82CC00FC400D115FF /* Helpers+Mocks */,
 				DD11AFA22CC0010A00D115FF /* Models */,
 				DD11AFB32CC15C1900D115FF /* Utils */,
 				DD11AF982CBFFEDD00D115FF /* Assets.xcassets */,
@@ -125,14 +125,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		DD11AFA82CC00FC400D115FF /* Helpers */ = {
+		DD11AFA82CC00FC400D115FF /* Helpers+Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				DD30993A2CC4236A004F7E94 /* Mocks */,
 				DD11AFA92CC00FDB00D115FF /* APIService.swift */,
-				DD3099372CC40007004F7E94 /* MockNetworkService.swift */,
 				DD3A02962CC23C9F00A66B10 /* OrientationManager.swift */,
 			);
-			path = Helpers;
+			path = "Helpers+Mocks";
 			sourceTree = "<group>";
 		};
 		DD11AFAB2CC020DC00D115FF /* Views */ = {
@@ -153,10 +153,18 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		DD30993A2CC4236A004F7E94 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				DD3099372CC40007004F7E94 /* MockNetworkService.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		DD33DF302CC3ABC900011E44 /* aroundTheWorldTests */ = {
 			isa = PBXGroup;
 			children = (
-				DD33DF312CC3ABC900011E44 /* aroundTheWorldTests.swift */,
+				DD33DF312CC3ABC900011E44 /* APIServiceTests.swift */,
 			);
 			path = aroundTheWorldTests;
 			sourceTree = "<group>";
@@ -278,7 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD33DF322CC3ABC900011E44 /* aroundTheWorldTests.swift in Sources */,
+				DD33DF322CC3ABC900011E44 /* APIServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
