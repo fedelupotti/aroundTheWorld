@@ -8,7 +8,7 @@ import Combine
 import Foundation
 
 final class HomeViewModel: ObservableObject {
-    @Published private var cities: [City] = []
+    @Published private(set) var cities: [City] = []
     
     @Published var searchableText = ""
     
@@ -24,8 +24,11 @@ final class HomeViewModel: ObservableObject {
     init(apiService: APIService) {
         self.apiService = apiService
         
-        onFetchSubscribe()
         onSearchableSubscribe()
+    }
+    
+    func fetchCities() {
+        onFetchSubscribe()
     }
     
     private func onSearchableSubscribe() {
@@ -71,5 +74,9 @@ final class HomeViewModel: ObservableObject {
     func updateCity(_ city: City, isFavorite: Bool) {
         guard let index = cities.firstIndex(where: { $0.id == city.id }) else { return }
         cities[index].isFavorite = isFavorite
+    }
+    
+    func sortByNameTesting(for cities: [City]) -> [City] {
+        return sortByName(for: cities)
     }
 }

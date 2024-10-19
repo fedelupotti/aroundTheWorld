@@ -18,6 +18,7 @@
 		DD11AFB52CC15C4300D115FF /* CityToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AFB42CC15C4300D115FF /* CityToggleStyle.swift */; };
 		DD11AFBB2CC17AB300D115FF /* CityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11AFBA2CC17AB300D115FF /* CityCellView.swift */; };
 		DD3099382CC40007004F7E94 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3099372CC40007004F7E94 /* MockNetworkService.swift */; };
+		DD30993C2CC42404004F7E94 /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD30993B2CC42404004F7E94 /* HomeViewModelTest.swift */; };
 		DD33DF322CC3ABC900011E44 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD33DF312CC3ABC900011E44 /* APIServiceTests.swift */; };
 		DD3A02972CC23C9F00A66B10 /* OrientationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A02962CC23C9F00A66B10 /* OrientationManager.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		DD11AFB42CC15C4300D115FF /* CityToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityToggleStyle.swift; sourceTree = "<group>"; };
 		DD11AFBA2CC17AB300D115FF /* CityCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCellView.swift; sourceTree = "<group>"; };
 		DD3099372CC40007004F7E94 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		DD30993B2CC42404004F7E94 /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
 		DD33DF2F2CC3ABC900011E44 /* aroundTheWorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = aroundTheWorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD33DF312CC3ABC900011E44 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		DD3A02962CC23C9F00A66B10 /* OrientationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationManager.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				DD33DF312CC3ABC900011E44 /* APIServiceTests.swift */,
+				DD30993B2CC42404004F7E94 /* HomeViewModelTest.swift */,
 			);
 			path = aroundTheWorldTests;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD33DF322CC3ABC900011E44 /* APIServiceTests.swift in Sources */,
+				DD30993C2CC42404004F7E94 /* HomeViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

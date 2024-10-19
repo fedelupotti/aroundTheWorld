@@ -48,6 +48,9 @@ struct ContentView: View {
             }
         }
         .environmentObject(homeViewModel)
+        .onAppear(perform: {
+            homeViewModel.fetchCities()
+        })
         
     }
     
