@@ -11,7 +11,7 @@ import MapKit
 struct ContentView: View {
     @Orientation var orientationDevice
     
-    @StateObject var homeViewModel = HomeViewModel(apiService: APIService())
+    @StateObject var homeViewModel = HomeViewModel()
     
     @State private var citySelected: City?
     @State private var selectedSegment = 0

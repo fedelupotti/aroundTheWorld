@@ -46,7 +46,7 @@ final class HomeViewModelTest: XCTestCase {
             .dropFirst()
             .sink(receiveValue: { cities in
                 //Then
-                XCTAssertTrue(cities[0].id == mockCity[0].id)
+                XCTAssertTrue(cities[0]?.id == mockCity[0].id)
                 expectation.fulfill()
             })
             .store(in: &cancellables)

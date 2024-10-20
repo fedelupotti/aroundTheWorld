@@ -21,6 +21,7 @@
 		DD30993C2CC42404004F7E94 /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD30993B2CC42404004F7E94 /* HomeViewModelTest.swift */; };
 		DD33DF322CC3ABC900011E44 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD33DF312CC3ABC900011E44 /* APIServiceTests.swift */; };
 		DD3A02972CC23C9F00A66B10 /* OrientationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A02962CC23C9F00A66B10 /* OrientationManager.swift */; };
+		DDD9F81D2CC57F2000077EED /* CityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD9F81C2CC57F2000077EED /* CityRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		DD33DF2F2CC3ABC900011E44 /* aroundTheWorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = aroundTheWorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD33DF312CC3ABC900011E44 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		DD3A02962CC23C9F00A66B10 /* OrientationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationManager.swift; sourceTree = "<group>"; };
+		DDD9F81C2CC57F2000077EED /* CityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				DD3099372CC40007004F7E94 /* MockNetworkService.swift */,
+				DDD9F81C2CC57F2000077EED /* CityRepository.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD11AFAD2CC0480000D115FF /* MapScreen.swift in Sources */,
+				DDD9F81D2CC57F2000077EED /* CityRepository.swift in Sources */,
 				DD11AFBB2CC17AB300D115FF /* CityCellView.swift in Sources */,
 				DD3099382CC40007004F7E94 /* MockNetworkService.swift in Sources */,
 				DD3A02972CC23C9F00A66B10 /* OrientationManager.swift in Sources */,
