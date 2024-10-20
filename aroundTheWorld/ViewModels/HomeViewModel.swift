@@ -36,7 +36,7 @@ final class HomeViewModel: ObservableObject {
             .combineLatest($cities)
             .map { (text, cities) -> [City] in
                 if text.isEmpty { return cities }
-                return cities.filter { $0.name?.lowercased().contains(text.lowercased()) ?? false }
+                return cities.filter { $0.name?.lowercased().hasPrefix(text.lowercased()) ?? false }
             }
             .assign(to: &$citiesSearched)
         
@@ -44,7 +44,7 @@ final class HomeViewModel: ObservableObject {
             .combineLatest($cities)
             .map { (text, cities) -> [City] in
                 if text.isEmpty { return cities.filter({ $0.isFavorite == true }) }
-                return cities.filter { $0.name?.lowercased().contains(text.lowercased()) ?? false && $0.isFavorite == true }
+                return cities.filter { $0.name?.lowercased().hasPrefix(text.lowercased()) ?? false && $0.isFavorite == true }
             }
             .assign(to: &$citiesFavoritesSearched)
     }
