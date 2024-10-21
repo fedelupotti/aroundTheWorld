@@ -9,6 +9,7 @@ import Foundation
 
 final class HomeViewModel: ObservableObject {
     @Published private(set) var cities: [Int: City] = [:]
+    
     @Published var searchableText = ""
     
     @Published private(set) var citiesSearched: [City] = []

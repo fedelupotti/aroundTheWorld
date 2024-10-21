@@ -21,6 +21,7 @@
 		DD30993C2CC42404004F7E94 /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD30993B2CC42404004F7E94 /* HomeViewModelTest.swift */; };
 		DD33DF322CC3ABC900011E44 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD33DF312CC3ABC900011E44 /* APIServiceTests.swift */; };
 		DD3A02972CC23C9F00A66B10 /* OrientationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A02962CC23C9F00A66B10 /* OrientationManager.swift */; };
+		DD552DF02CC642A20035522B /* CityDetailSheetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD552DEF2CC642A20035522B /* CityDetailSheetScreen.swift */; };
 		DDD9F81D2CC57F2000077EED /* CityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD9F81C2CC57F2000077EED /* CityRepository.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		DD33DF2F2CC3ABC900011E44 /* aroundTheWorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = aroundTheWorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD33DF312CC3ABC900011E44 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		DD3A02962CC23C9F00A66B10 /* OrientationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationManager.swift; sourceTree = "<group>"; };
+		DD552DEF2CC642A20035522B /* CityDetailSheetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailSheetScreen.swift; sourceTree = "<group>"; };
 		DDD9F81C2CC57F2000077EED /* CityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 				DD11AF962CBFFEDC00D115FF /* HomeScreen.swift */,
 				DD11AFBA2CC17AB300D115FF /* CityCellView.swift */,
 				DD11AFAC2CC0480000D115FF /* MapScreen.swift */,
+				DD552DEF2CC642A20035522B /* CityDetailSheetScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				DD11AF952CBFFEDC00D115FF /* aroundTheWorldApp.swift in Sources */,
 				DD11AFA42CC0014D00D115FF /* City.swift in Sources */,
 				DD11AFA72CC0080500D115FF /* HomeViewModel.swift in Sources */,
+				DD552DF02CC642A20035522B /* CityDetailSheetScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
