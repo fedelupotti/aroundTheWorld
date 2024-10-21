@@ -68,14 +68,6 @@ final class HomeViewModel: ObservableObject {
             .assign(to: &$citiesFavoritesSearched)
     }
     
-    private func filterBySearchWith(prefix: String, from cities: [City]) -> [City] {
-        cities.filter { $0.name?.lowercased().hasPrefix(prefix.lowercased()) ?? false }
-    }
-    
-    private func filterByFavorites(from cities: [City]) -> [City] {
-        cities.filter( { $0.isFavorite == true })
-    }
-    
     private func onFetchSubscribe() {
         isLoading = true
         
@@ -97,6 +89,14 @@ final class HomeViewModel: ObservableObject {
                 
             })
             .store(in: &cancellables)
+    }
+    
+    private func filterBySearchWith(prefix: String, from cities: [City]) -> [City] {
+        cities.filter { $0.name?.lowercased().hasPrefix(prefix.lowercased()) ?? false }
+    }
+    
+    private func filterByFavorites(from cities: [City]) -> [City] {
+        cities.filter( { $0.isFavorite == true })
     }
     
     private func transformToCitiesDictionary(for cities: [City]) -> [Int: City] {
