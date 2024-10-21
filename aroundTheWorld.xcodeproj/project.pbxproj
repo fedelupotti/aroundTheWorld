@@ -134,6 +134,7 @@
 			children = (
 				DD30993A2CC4236A004F7E94 /* Mocks */,
 				DD11AFA92CC00FDB00D115FF /* APIService.swift */,
+				DDD9F81C2CC57F2000077EED /* CityRepository.swift */,
 				DD3A02962CC23C9F00A66B10 /* OrientationManager.swift */,
 			);
 			path = "Helpers+Mocks";
@@ -161,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				DD3099372CC40007004F7E94 /* MockNetworkService.swift */,
-				DDD9F81C2CC57F2000077EED /* CityRepository.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
