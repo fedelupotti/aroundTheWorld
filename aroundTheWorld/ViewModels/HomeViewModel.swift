@@ -8,6 +8,7 @@ import Combine
 import Foundation
 
 final class HomeViewModel: ObservableObject {
+    //* 1
     @Published private(set) var cities: [Int: City] = [:]
     
     @Published var searchableText = ""
@@ -16,7 +17,7 @@ final class HomeViewModel: ObservableObject {
     @Published private(set) var citiesFavoritesSearched: [City] = []
     
     @Published private(set) var isLoading = false
-
+    //* 2
     private let apiService: APIService
     private let cityRepository: CityRepositoryProtocol
     
@@ -34,7 +35,7 @@ final class HomeViewModel: ObservableObject {
     func fetchCities() {
         onFetchSubscribe()
     }
-    
+    //* 3
     private func onSearchableSubscribe() {
         $searchableText
             .combineLatest($cities)
@@ -90,7 +91,7 @@ final class HomeViewModel: ObservableObject {
             })
             .store(in: &cancellables)
     }
-    
+    //* 4
     private func filterBySearchWith(prefix: String, from cities: [City]) -> [City] {
         cities.filter { $0.name?.lowercased().hasPrefix(prefix.lowercased()) ?? false }
     }
@@ -98,7 +99,7 @@ final class HomeViewModel: ObservableObject {
     private func filterByFavorites(from cities: [City]) -> [City] {
         cities.filter( { $0.isFavorite == true })
     }
-    
+    //* 5
     private func transformToCitiesDictionary(for cities: [City]) -> [Int: City] {
         var citiesDictionary = [Int: City]()
         
@@ -107,7 +108,7 @@ final class HomeViewModel: ObservableObject {
             })
         return citiesDictionary
     }
-    
+    //* 6
     private func applyFavoritesCitiesFrom(ids: Set<Int>,to citiesDict: [Int : City]) -> [Int : City] {
         var citiesDictionaryWithFavorites = citiesDict
         for id in ids {
@@ -115,7 +116,7 @@ final class HomeViewModel: ObservableObject {
         }
         return citiesDictionaryWithFavorites
     }
-    
+    //* 7
     func updateCity(_ city: City, isFavorite: Bool) {
         guard let cityId = city.id else { return }
         cities[cityId]?.isFavorite = isFavorite
@@ -126,7 +127,7 @@ final class HomeViewModel: ObservableObject {
     private func getSortCitiesByName(for cities: [City]) -> [City] {
         return cities.sorted(by: { $0.name ?? "" < $1.name ?? "" })
     }
-    
+    //*8
     func sortByName_Testing(for cities: [City]) -> [City] {
         return getSortCitiesByName(for: cities)
     }
@@ -136,3 +137,13 @@ final class HomeViewModel: ObservableObject {
     }
 }
 
+// Comments: Provide litle descriptions about some decisions
+
+//* 1: Use private(set) to allow subscribers to get access. Changes in variable values inside view model are changed only by itself
+//* 2: Dependency Injection
+//* 3: Listen to changes when user types for search propose
+//* 4: To allow modularization and testability
+//* 5: To avoid to process all the elements O(n) multiple times, a dictionary is created to access by id key
+//* 6: Idem
+//* 7: Function what Views has access to, (see comment *1). This could be done with better practice, but to avoid more computations this appoach was used. Remember: talk about this approach
+//*8: Allow testing access
