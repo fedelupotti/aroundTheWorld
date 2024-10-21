@@ -45,7 +45,8 @@ final class HomeViewModel: ObservableObject {
                 let citiesSorted = self.getSortCitiesByName(for: cities)
                 
                 if text.isEmpty { return citiesSorted }
-                return citiesSorted.filter { $0.name?.lowercased().hasPrefix(text.lowercased()) ?? false }
+                
+                return filterBySearchWith(prefix: text, from: citiesSorted)
             }
             .assign(to: &$citiesSearched)
         
@@ -58,9 +59,21 @@ final class HomeViewModel: ObservableObject {
                 let citiesSorted = self.getSortCitiesByName(for: cities)
                 
                 if text.isEmpty { return citiesSorted.filter { $0.isFavorite == true } }
-                return citiesSorted.filter { $0.name?.lowercased().hasPrefix(text.lowercased()) ?? false && $0.isFavorite == true }
+                
+                let citiesFilterBySearchInput = filterBySearchWith(prefix: text, from: citiesSorted)
+                let citiesWithFavorites = filterByFavorites(from: citiesFilterBySearchInput)
+                
+                return citiesWithFavorites
             }
             .assign(to: &$citiesFavoritesSearched)
+    }
+    
+    private func filterBySearchWith(prefix: String, from cities: [City]) -> [City] {
+        cities.filter { $0.name?.lowercased().hasPrefix(prefix.lowercased()) ?? false }
+    }
+    
+    private func filterByFavorites(from cities: [City]) -> [City] {
+        cities.filter( { $0.isFavorite == true })
     }
     
     private func onFetchSubscribe() {
@@ -80,7 +93,7 @@ final class HomeViewModel: ObservableObject {
                 let sortedCitiesDictionary = self.transformToCitiesDictionary(for: cities)
                 let localFavoriteIDs = self.cityRepository.getFavorites()
                 
-                self.cities = getFavoritesCitiesFromRepository(localIds: localFavoriteIDs, citiesDict: sortedCitiesDictionary)
+                self.cities = applyFavoritesCitiesFrom(ids: localFavoriteIDs, to: sortedCitiesDictionary)
                 
             })
             .store(in: &cancellables)
@@ -95,9 +108,9 @@ final class HomeViewModel: ObservableObject {
         return citiesDictionary
     }
     
-    private func getFavoritesCitiesFromRepository(localIds: Set<Int>, citiesDict: [Int : City]) -> [Int : City] {
+    private func applyFavoritesCitiesFrom(ids: Set<Int>,to citiesDict: [Int : City]) -> [Int : City] {
         var citiesDictionaryWithFavorites = citiesDict
-        for id in localIds {
+        for id in ids {
             citiesDictionaryWithFavorites[id]?.isFavorite = true
         }
         return citiesDictionaryWithFavorites
