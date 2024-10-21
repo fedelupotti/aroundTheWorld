@@ -27,6 +27,27 @@ final class HomeViewModelTest: XCTestCase {
         sut = nil
         cancellables = nil
     }
+    
+    func test_homeViewModel_filterBySearchWith_returnsMatchingCities() {
+        // Given
+        let cities = [
+            City(country: "US", name: "Alabama", id: 1, coordinate: nil),
+            City(country: "US", name: "Albuquerque", id: 2, coordinate: nil),
+            City(country: "US", name: "Annn", id: 3, coordinate: nil),
+            City(country: "AU", name: "Sydney", id: 4, coordinate: nil)
+        ]
+        
+        let prefix = "Al"
+        
+        // When
+        let filteredCities = sut.filterBySearchWith_Testing(prefix: prefix, from: cities)
+        
+        // Then
+        XCTAssertEqual(filteredCities.count, 2)
+        XCTAssertEqual(filteredCities[0].name, "Alabama")
+        XCTAssertEqual(filteredCities[1].name, "Albuquerque")
+    }
+
 
     func test_homeViewModel_cities_correctSubscribe() throws {
         //Given
@@ -132,7 +153,7 @@ final class HomeViewModelTest: XCTestCase {
         apiService = APIService(networkService: mockNetworkService)
         sut = HomeViewModel(apiService: apiService)
         
-        let citiesSortedByName = sut.sortByNameTesting(for: mockCity)
+        let citiesSortedByName = sut.sortByName_Testing(for: mockCity)
         
         //Then
         XCTAssertTrue(citiesSortedByName[0].id == 3001)

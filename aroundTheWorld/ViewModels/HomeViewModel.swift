@@ -127,8 +127,12 @@ final class HomeViewModel: ObservableObject {
         return cities.sorted(by: { $0.name ?? "" < $1.name ?? "" })
     }
     
-    func sortByNameTesting(for cities: [City]) -> [City] {
+    func sortByName_Testing(for cities: [City]) -> [City] {
         return getSortCitiesByName(for: cities)
+    }
+    
+    func filterBySearchWith_Testing(prefix: String, from cities: [City]) -> [City] {
+        return filterBySearchWith(prefix: prefix, from: cities)
     }
 }
 
