@@ -51,19 +51,11 @@ final class HomeViewModel: ObservableObject {
             }
             .assign(to: &$citiesSearched)
         
-        $searchableText
-            .combineLatest($cities)
-            .map { [weak self] (text, citiesDict) -> [City] in
+        $citiesSearched
+            .map { [weak self] cities -> [City] in
                 guard let self else { return [] }
                 
-                let cities = Array(citiesDict.values)
-                let citiesSorted = self.getSortCitiesByName(for: cities)
-                
-                if text.isEmpty { return citiesSorted.filter { $0.isFavorite == true } }
-                
-                let citiesFilterBySearchInput = filterBySearchWith(prefix: text, from: citiesSorted)
-                let citiesWithFavorites = filterByFavorites(from: citiesFilterBySearchInput)
-                
+                let citiesWithFavorites = filterByFavorites(from: cities)
                 return citiesWithFavorites
             }
             .assign(to: &$citiesFavoritesSearched)
